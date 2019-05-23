@@ -6,8 +6,8 @@ import org.apache.log4j.LogManager
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.avro._
-import org.apache.spark.sql.functions._
+import org.apache.spark.sql.avro.from_avro
+import org.apache.spark.sql.functions.col
 
 object StoreIotDataInHopsFs extends App {
 
@@ -53,7 +53,7 @@ object StoreIotDataInHopsFs extends App {
 
     spark.streams.awaitAnyTermination()
     log.info("Shutting down StoreIotDataInHopsFs job")
-    spark.close
+    spark.close()
 
   }
 }
